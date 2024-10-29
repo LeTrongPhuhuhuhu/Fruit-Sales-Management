@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2AE0729-B85A-418C-88FF-C63C9312726F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DoAnTraiCay</RootNamespace>
+    <AssemblyName>DoAnTraiCay</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Engine.13.0.4003\lib\net40\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ClientDoc.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommLayer.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonControls.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Controllers.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataDefModel.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Shared.13.0.4003\lib\net40\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dsCT_SANPHAM.cs">
+      <DependentUpon>dsCT_SANPHAM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCT_SANPHAM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCT_SANPHAM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanHang.Designer.cs">
+      <DependentUpon>frmBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBill.Designer.cs">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDon.Designer.cs">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhaCungCap.Designer.cs">
+      <DependentUpon>frmNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLy.Designer.cs">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHomePage.Designer.cs">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanVien.Designer.cs">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSanPham.Designer.cs">
+      <DependentUpon>frmSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemTKNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemTKNV.Designer.cs">
+      <DependentUpon>frmThemTKNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKe.Designer.cs">
+      <DependentUpon>frmThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLCHTraiCayDataSet.cs">
+      <DependentUpon>QLCHTraiCayDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet141.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet141.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet19.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet201.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet201.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet23.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet23.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet24.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet24.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet25.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet25.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet26.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet26.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet27.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet27.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet28.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet28.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet29.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet29.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet30.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet30.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet31.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCHTraiCayDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCHTraiCayDataSet9.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmBanHang.resx">
+      <DependentUpon>frmBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBill.resx">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDon.resx">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKhachHang.resx">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhaCungCap.resx">
+      <DependentUpon>frmNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLy.resx">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHomePage.resx">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanVien.resx">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSanPham.resx">
+      <DependentUpon>frmSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemTKNV.resx">
+      <DependentUpon>frmThemTKNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKe.resx">
+      <DependentUpon>frmThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inbill.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="dsCT_SANPHAM.xsc">
+      <DependentUpon>dsCT_SANPHAM.xsd</DependentUpon>
+    </None>
+    <None Include="dsCT_SANPHAM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCT_SANPHAM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCT_SANPHAM.xss">
+      <DependentUpon>dsCT_SANPHAM.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="QLCHTraiCayDataSet.xsc">
+      <DependentUpon>QLCHTraiCayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet.xss">
+      <DependentUpon>QLCHTraiCayDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QLCHTraiCay.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QLCHTraiCay_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>QLCHTraiCay.mdf</DependentUpon>
+    </Content>
+    <None Include="QLCHTraiCayDataSet10.xsc">
+      <DependentUpon>QLCHTraiCayDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet10.xss">
+      <DependentUpon>QLCHTraiCayDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet11.xsc">
+      <DependentUpon>QLCHTraiCayDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet11.xss">
+      <DependentUpon>QLCHTraiCayDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet12.xsc">
+      <DependentUpon>QLCHTraiCayDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet12.xss">
+      <DependentUpon>QLCHTraiCayDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet13.xsc">
+      <DependentUpon>QLCHTraiCayDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet13.xss">
+      <DependentUpon>QLCHTraiCayDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet141.xsc">
+      <DependentUpon>QLCHTraiCayDataSet141.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet141.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet141.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet141.xss">
+      <DependentUpon>QLCHTraiCayDataSet141.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet15.xsc">
+      <DependentUpon>QLCHTraiCayDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet15.xss">
+      <DependentUpon>QLCHTraiCayDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet16.xsc">
+      <DependentUpon>QLCHTraiCayDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet16.xss">
+      <DependentUpon>QLCHTraiCayDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet17.xsc">
+      <DependentUpon>QLCHTraiCayDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet17.xss">
+      <DependentUpon>QLCHTraiCayDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet18.xsc">
+      <DependentUpon>QLCHTraiCayDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet18.xss">
+      <DependentUpon>QLCHTraiCayDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet19.xsc">
+      <DependentUpon>QLCHTraiCayDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet19.xss">
+      <DependentUpon>QLCHTraiCayDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet201.xsc">
+      <DependentUpon>QLCHTraiCayDataSet201.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet201.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet201.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet201.xss">
+      <DependentUpon>QLCHTraiCayDataSet201.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet21.xsc">
+      <DependentUpon>QLCHTraiCayDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet21.xss">
+      <DependentUpon>QLCHTraiCayDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet22.xsc">
+      <DependentUpon>QLCHTraiCayDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet22.xss">
+      <DependentUpon>QLCHTraiCayDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet23.xsc">
+      <DependentUpon>QLCHTraiCayDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet23.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet23.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet23.xss">
+      <DependentUpon>QLCHTraiCayDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet24.xsc">
+      <DependentUpon>QLCHTraiCayDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet24.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet24.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet24.xss">
+      <DependentUpon>QLCHTraiCayDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet25.xsc">
+      <DependentUpon>QLCHTraiCayDataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet25.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet25.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet25.xss">
+      <DependentUpon>QLCHTraiCayDataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet26.xsc">
+      <DependentUpon>QLCHTraiCayDataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet26.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet26.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet26.xss">
+      <DependentUpon>QLCHTraiCayDataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet27.xsc">
+      <DependentUpon>QLCHTraiCayDataSet27.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet27.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet27.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet27.xss">
+      <DependentUpon>QLCHTraiCayDataSet27.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet28.xsc">
+      <DependentUpon>QLCHTraiCayDataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet28.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet28.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet28.xss">
+      <DependentUpon>QLCHTraiCayDataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet29.xsc">
+      <DependentUpon>QLCHTraiCayDataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet29.xss">
+      <DependentUpon>QLCHTraiCayDataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet30.xsc">
+      <DependentUpon>QLCHTraiCayDataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet30.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet30.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet30.xss">
+      <DependentUpon>QLCHTraiCayDataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet31.xsc">
+      <DependentUpon>QLCHTraiCayDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet31.xss">
+      <DependentUpon>QLCHTraiCayDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet9.xsc">
+      <DependentUpon>QLCHTraiCayDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet9.xss">
+      <DependentUpon>QLCHTraiCayDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\watermelon.png" />
+    <None Include="Resources\vegetables.png" />
+    <None Include="Resources\pineapple.png" />
+    <None Include="Resources\orange.png" />
+    <None Include="Resources\healthy-food.png" />
+    <None Include="Resources\dragon-fruit.png" />
+    <None Include="QLCHTraiCayDataSet1.xsc">
+      <DependentUpon>QLCHTraiCayDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet1.xss">
+      <DependentUpon>QLCHTraiCayDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet2.xsc">
+      <DependentUpon>QLCHTraiCayDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet2.xss">
+      <DependentUpon>QLCHTraiCayDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet3.xsc">
+      <DependentUpon>QLCHTraiCayDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet3.xss">
+      <DependentUpon>QLCHTraiCayDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet4.xsc">
+      <DependentUpon>QLCHTraiCayDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet4.xss">
+      <DependentUpon>QLCHTraiCayDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet5.xsc">
+      <DependentUpon>QLCHTraiCayDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet5.xss">
+      <DependentUpon>QLCHTraiCayDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet6.xsc">
+      <DependentUpon>QLCHTraiCayDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet6.xss">
+      <DependentUpon>QLCHTraiCayDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet7.xsc">
+      <DependentUpon>QLCHTraiCayDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet7.xss">
+      <DependentUpon>QLCHTraiCayDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet8.xsc">
+      <DependentUpon>QLCHTraiCayDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="QLCHTraiCayDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCHTraiCayDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCHTraiCayDataSet8.xss">
+      <DependentUpon>QLCHTraiCayDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\loupe.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
